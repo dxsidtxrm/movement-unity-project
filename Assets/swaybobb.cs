@@ -75,7 +75,7 @@ public class swaybobb : MonoBehaviour
 
             if (bobExaggeration > 1.1f)
             {
-
+                
                 bobExaggeration -= Time.deltaTime * 100;
             }
             if(bobExaggeration<1)
@@ -97,7 +97,7 @@ public class swaybobb : MonoBehaviour
 
   //   if ((Mathf.Abs(walkInput.y)  +Mathf.Abs(  walkInput.x) )!= 0)
         if (bobExaggeration > 10)
-            if(ste==true)if(speedCurve>=5.5555f)
+            if(ste==true)if(Mathf.Abs(speedCurve)>=5.5555f)
         {
             Invoke("Step",0);
                 ste = false;
@@ -120,8 +120,8 @@ public class swaybobb : MonoBehaviour
     }
     void GetInput()
     {
-        walkInput.x = Input.GetAxis("Horizontal");
-        walkInput.y = Input.GetAxis("Vertical");
+        walkInput.x = Input.GetAxisRaw("Horizontal");
+        walkInput.y = Input.GetAxisRaw("Vertical");
         walkInput = walkInput.normalized;
 
         lookInput.x = Input.GetAxis("Mouse X");
@@ -155,13 +155,13 @@ public class swaybobb : MonoBehaviour
     void BobOffset()
     {
         //   if (!(Input.GetKey(KeyCode.W) &&Input.GetKey(KeyCode.S))  && !(Input.GetKey(KeyCode.D) && Input.GetKey(KeyCode.A)))
-     
 
-        speedCurve += Time.deltaTime * (((Mathf.Abs(Input.GetAxis("Horizontal")) != Mathf.Abs(Input.GetAxis("Vertical"))) ? (mover.isGrounded ? (walkInput.x + walkInput.y) * bobExaggeration : 1f):( bobExaggeration))) + 0.01f;
-
-        bobPosition.x = (curveCos * bobLimit.x * (mover.isGrounded ? 1 : 0)) - (walkInput.x * travelLimit.x);
-        bobPosition.y = (curveSin * bobLimit.y) - (Input.GetAxis("Vertical") * travelLimit.y);
-        bobPosition.z = -(walkInput.y * travelLimit.z);
+        if (bobExaggeration > 1.1f)
+            speedCurve += Time.deltaTime * (((Mathf.Abs(Input.GetAxis("Horizontal")) != Mathf.Abs(Input.GetAxis("Vertical"))) ? (mover.isGrounded ? (Mathf.Abs(walkInput.x + walkInput.y)) * bobExaggeration : 1f) : bobExaggeration)) + 0.01f;
+        else speedCurve = 0;
+        bobPosition.x = (curveCos * bobLimit.x * (mover.isGrounded ? 1 : 0)) - (Mathf.Abs(walkInput.x )* travelLimit.x);
+        bobPosition.y = (curveSin * bobLimit.y) - (Input.GetAxisRaw("Vertical") * travelLimit.y);
+        bobPosition.z = -(Mathf.Abs(walkInput.y) * travelLimit.z);
     }
 
     void BobRotation()
