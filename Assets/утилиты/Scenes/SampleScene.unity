@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.021618575, g: 0.012627482, b: 0.014847629, a: 1}
+  m_IndirectSpecularColor: {r: 0.021618754, g: 0.012627527, b: 0.0148476325, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -191,12 +191,13 @@ MonoBehaviour:
   maxRotationStep: 0
   smooth: 9.5
   speedCurve: 0
-  travelLimit: {x: 0.16, y: 0.38, z: 0}
-  bobLimit: {x: 0.1, y: 0.81, z: 1}
+  travelLimit: {x: 0.16, y: 0.4, z: 0}
+  bobLimit: {x: 0.1, y: 0.85, z: 1.33}
   bobExaggeration: 1
-  multiplier: {x: 0.6, y: 0.4, z: 1}
-  fallimpact: 0.44
+  multiplier: {x: 0.6, y: 0.4, z: 1.33}
+  fallimpact: 0.11
   cam: {fileID: 963194225}
+  tm: 0
   idlespeed: 0
   walk: 0
 --- !u!1 &40391564
@@ -4355,7 +4356,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21948
+  m_Name: pb_Mesh29274
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -8825,7 +8826,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21862
+  m_Name: pb_Mesh29204
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -9414,7 +9415,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh21794
+  m_Name: pb_Mesh29154
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

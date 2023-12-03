@@ -41,7 +41,7 @@ public class swaybobb : MonoBehaviour
     public float fallimpact;
 
     public GameObject cam;
-    private float tm;
+    public float tm;
     private bool ste = true;
     public float idlespeed;
     private float idletime;
@@ -107,43 +107,49 @@ public class swaybobb : MonoBehaviour
             bobExaggeration += Time.deltaTime*30;
             }
 
-        tm += Time.deltaTime;
 
 
         //   if ((Mathf.Abs(walkInput.y)  +Mathf.Abs(  walkInput.x) )!= 0)
         if (bobExaggeration > 5)
         {
-            if (ste == true) if (IdleSin <= -0.99f)
+            if (ste == false) if (IdleSin <= -0.99f)
                 {
-                    Invoke("Step", 0);
-                    ste = false;
+                   
+                    ste = true;
                 }
 
-            if (IdleSin >= 0.99f)
-            {
-                Invoke("Upstep", 0);
-            }
+            
 
 
         }
-       
+
+        if (ste == true)
+        {
+            if (tm <= 0.1f)
+            {
+                tm += Time.deltaTime;
+                cam.transform.localEulerAngles += new Vector3(fallimpact * (2f - Time.deltaTime*2 ), 0, 0);
+            //      if (cam.GetComponent<Camera>().fieldOfView >69.9f)
+            //    cam.GetComponent<Camera>().fieldOfView -= 0.25f ;
+            }
+            else
+            {
+                tm = 0;
+                ste = false;
+                
+            }
+            
+            
+
+        }
+
+
         CompositePositionRotation();
     }
 
 
     Vector2 lookInput;
-    void Step()
-    {
-        cam.transform.localEulerAngles += new Vector3(fallimpact, 0, 0);
-        cam.GetComponent<Camera>().fieldOfView -=0.2f;
-        ste = true;
-       
-    }
 
-    void Upstep()
-    {
-        //cam.transform.position +=transform.up;
-    }
 
 
     void GetInput()

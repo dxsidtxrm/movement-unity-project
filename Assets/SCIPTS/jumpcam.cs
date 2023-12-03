@@ -131,9 +131,9 @@ public class jumpcam : MonoBehaviour
             {
                 this.GetComponent<Camera>().fieldOfView -= Time.deltaTime * 75;
             }
-            if (this.GetComponent<Camera>().fieldOfView < 69.99f)
+            if (this.GetComponent<Camera>().fieldOfView < 70f)
             {
-                this.GetComponent<Camera>().fieldOfView += Time.deltaTime / 2;
+                this.GetComponent<Camera>().fieldOfView += Time.deltaTime /2 ;
             }
 
 
