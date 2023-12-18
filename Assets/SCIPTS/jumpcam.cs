@@ -4,21 +4,30 @@ using UnityEngine;
 
 public class jumpcam : MonoBehaviour
 {
-    public float jumpHeight = 7f;
+    [SerializeField]
+    private float jumpHeight = 7f;
     private float ti;
     private float got;
-    public bool a;
-    public float x;
-    public bool isGrounded;
-    public int max=0;
-    public float max2=0;
-    public Transform cam;
+    [SerializeField]
+    private bool a;
+    [SerializeField]
+    private float x;
+  public bool isGrounded;
+    [SerializeField]
+    private int max=0;
+    [SerializeField]
+    private float max2=0;
+    [SerializeField]
+    private Transform cam;
     private bool fov;
     private float cl;
     private bool ground;
-    public GameObject ruki;
-    public float clock;
-    public float fallimpact;
+    [SerializeField]
+    private GameObject ruki;
+    [SerializeField]
+    private float clock;
+    [SerializeField]
+    private float fallimpact;
     [SerializeField]
     private float rukiimpact=1;
     void Start()

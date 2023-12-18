@@ -11,12 +11,18 @@ public class hitcollision : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+   private void Awake()
     {
-        
+
+
+        Destroy(gameObject, 2f);
+        Destroy(this, 2f);
+
+
     }
     private void OnCollisionEnter(Collision collision)
     {
-        Destroy(this);
+        Destroy(gameObject); Destroy(this);
     }
+    
 }
