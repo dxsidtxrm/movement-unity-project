@@ -70,7 +70,10 @@ public class shoot : MonoBehaviour
     [SerializeField]
     private float fovshoot;
     [SerializeField]
-    private ParticleSystem[] muzlflashes;[SerializeField]
+    private ParticleSystem muzlflashP;
+    [SerializeField]
+    private ParticleSystem explP;
+    [SerializeField]
     private GameObject muzlflash;
     [SerializeField]
     private GameObject muzlexpl;
@@ -85,10 +88,11 @@ public class shoot : MonoBehaviour
     [SerializeField]
     private LayerMask layerMask;
     [SerializeField] Transform smoke;
+
     void Start()
     {
         //  prefmuzlflash = GetComponent<ParticleSystem>();
-
+      
     }
 
     // Update is called once per frame
@@ -105,9 +109,12 @@ public class shoot : MonoBehaviour
             if (Time.time > ti)
             {
                 ti = Time.time + firerate;
-                shot(); if (Time.time > cl)
+                anim.SetBool("shoot", true); cl = Time.time - 0.1f; if (Time.time > cl)
                     cam.transform.localEulerAngles -= new Vector3(shootimpact * (1.8f - Time.deltaTime * 8f), 0, 0);
-                cam.GetComponent<Camera>().fieldOfView += shootimpact * (1.8f - Time.deltaTime * 8f);
+                 cam.GetComponent<Camera>().fieldOfView += shootimpact * (2f - Time.deltaTime * 10f);
+                Vector3 d=new Vector3(0,0,-0.25f);
+                d = transform.TransformDirection(d);
+                cam.transform.position +=d;
 
 
 
@@ -125,11 +132,13 @@ public class shoot : MonoBehaviour
                 GameObject smok = Instantiate(smokepref, muzltrans.transform.position, muzltrans.transform.rotation);
                 Destroy(smok, 3f);
                 //ƒ”À‹Õ¿ﬂ ¬—œ€ÿ ¿
-                GameObject muzlfl = Instantiate(muzlflash, muzltrans.transform.position, muzltrans.transform.rotation);
-                Destroy(muzlfl, 0.3f);
+                //GameObject muzlfl = Instantiate(muzlflash, muzltrans.transform.position, muzltrans.transform.rotation);
+            //    Destroy(muzlfl, 0.2f);
+                muzlflashP.Play();
                 //¬«–€¬ » ¬—ﬂ ¿ﬂ ’”…Õﬂ
                 GameObject expl = Instantiate(muzlexpl, muzltrans.transform.position, muzltrans.transform.rotation);
                 Destroy(expl, 3);
+                //explP.Play();
                 //‰˚Ï ÏÂ‰ÎÂÌÌ˚È ‰ÓÎ„ËÈ ‚‚Âı 
                 GameObject smoke2 = Instantiate(smokeUp, muzltrans.transform.position, muzltrans.transform.rotation);
                 Destroy(smoke2, 3);
@@ -214,7 +223,7 @@ public class shoot : MonoBehaviour
 
 
             }
-            else unshot();
+            else anim.SetBool("shoot", false);
 
         }
         q1 = mainpers.transform.rotation.y;

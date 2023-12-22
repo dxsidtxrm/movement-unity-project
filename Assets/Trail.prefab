@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 4671522054362351715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -116,17 +116,17 @@ TrailRenderer:
         inWeight: 1
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.74635106
-        value: 0.098350234
-        inSlope: -0.37698615
-        outSlope: -0.37698615
+        time: 0.21500534
+        value: 0.10411136
+        inSlope: -0.24226259
+        outSlope: -0.24226259
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.6517397
+        inWeight: 0.07166167
         outWeight: 0.39646336
       - serializedVersion: 3
         time: 1
-        value: 0.022197803
+        value: 0.013591846
         inSlope: -0.08901098
         outSlope: -0.08901098
         tangentMode: 0
@@ -140,8 +140,8 @@ TrailRenderer:
       serializedVersion: 2
       key0: {r: 1, g: 0.16651759, b: 0, a: 1}
       key1: {r: 1, g: 0.4760489, b: 0, a: 1}
-      key2: {r: 1, g: 0.868332, b: 0, a: 1}
-      key3: {r: 1, g: 0.8591049, b: 0, a: 1}
+      key2: {r: 1, g: 0.868332, b: 0, a: 0.8627451}
+      key3: {r: 1, g: 0.8591049, b: 0, a: 0.7921569}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
@@ -157,7 +157,7 @@ TrailRenderer:
       atime0: 0
       atime1: 3855
       atime2: 8674
-      atime3: 63993
+      atime3: 58982
       atime4: 65535
       atime5: 0
       atime6: 0

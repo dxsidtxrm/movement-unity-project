@@ -81,28 +81,28 @@ public class swaybobb : MonoBehaviour
  
 
 
-
         if (walkInput == new Vector2(0, 0))
         {
+                bobLimit.y = 0.3f;
+   
 
 
-
-
-            if (bobExaggeration > 1.1f)
+                if (bobExaggeration > 0.5f)
             {
                 
                 bobExaggeration -= Time.deltaTime * 100;
             }
-            if(bobExaggeration<1)
+            if(bobExaggeration<0.4f)
                 bobExaggeration += Time.deltaTime * 2;
 
         }
         else
+           
 
 
+        bobLimit.y = 0.9f;
 
-
-            if (bobExaggeration < 10)
+        if (bobExaggeration < 10)
            {
             bobExaggeration += Time.deltaTime*30;
             }
@@ -204,7 +204,9 @@ public class swaybobb : MonoBehaviour
 
         }
         bobPosition.x = (IdleCos * bobLimit.x * (mover.isGrounded ? 1 : 0)) - (walkInput.x * travelLimit.x);
-        bobPosition.y = (IdleSin * bobLimit.y) - (Input.GetAxis("Vertical") * travelLimit.y);
+        if (!Input.GetMouseButton(0))
+            bobPosition.y = (IdleSin * bobLimit.y) - (Input.GetAxis("Vertical") * travelLimit.y);else
+            bobPosition.y = (IdleSin * bobLimit.y) - (1 * travelLimit.y);
         bobPosition.z = -(walkInput.y * travelLimit.z);
         idletime += Time.deltaTime + 0.01f;   
         idlespeed = speedCurve+idletime;
